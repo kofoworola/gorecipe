@@ -9,7 +9,7 @@ require (
 	github.com/google/go-cmp v0.3.0 // indirect
 	github.com/google/pprof v0.0.0-20190515194954-54271f7e092f // indirect
 	github.com/hashicorp/golang-lru v0.5.1 // indirect
-	github.com/jinzhu/gorm v1.9.8 // indirect
+	github.com/jinzhu/gorm v1.9.8
 	github.com/lib/pq v1.1.1 // indirect
 	github.com/vektah/gqlparser v1.1.2
 	golang.org/x/crypto v0.0.0-20190513172903-22d7a77e9e5f // indirect

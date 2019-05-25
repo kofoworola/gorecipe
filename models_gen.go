@@ -2,12 +2,6 @@
 
 package gorecipe
 
-type Ingredient struct {
-	ID       int    `json:"id"`
-	Name     string `json:"name"`
-	RecipeID int    `json:"recipeId"`
-}
-
 type NewIngredient struct {
 	Name string `json:"name"`
 }
@@ -15,11 +9,4 @@ type NewIngredient struct {
 type NewRecipe struct {
 	Name      string  `json:"name"`
 	Procedure *string `json:"procedure"`
-}
-
-type Recipe struct {
-	ID          int           `json:"id"`
-	Name        string        `json:"name"`
-	Procedure   string        `json:"procedure"`
-	Ingredients []*Ingredient `json:"ingredients"`
 }

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/kofoworola/gorecipe/models"
 	"log"
 	"net/http"
 	"os"
@@ -16,6 +17,11 @@ func main() {
 	if port == "" {
 		port = defaultPort
 	}
+
+	//Migrate Db
+	db := models.FetchConnection()
+	db.AutoMigrate(&models.Recipe{},&models.Ingredient{})
+	db.Close()
 
 	http.Handle("/", handler.Playground("GraphQL playground", "/query"))
 	http.Handle("/query", handler.GraphQL(gorecipe.NewExecutableSchema(gorecipe.Config{Resolvers: &gorecipe.Resolver{}})))

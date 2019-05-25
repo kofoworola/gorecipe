@@ -9,6 +9,11 @@ exec:
   filename: generated.go
 model:
   filename: models_gen.go
+models:
+  Recipe:
+    model: github.com/kofoworola/gorecipe/models.Recipe
+  Ingredient:
+    model: github.com/kofoworola/gorecipe/models.Ingredient
 resolver:
   filename: resolver.go
   type: Resolver

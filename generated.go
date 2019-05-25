@@ -12,6 +12,7 @@ import (
 
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/99designs/gqlgen/graphql/introspection"
+	"github.com/kofoworola/gorecipe/models"
 	"github.com/vektah/gqlparser"
 	"github.com/vektah/gqlparser/ast"
 )
@@ -67,12 +68,12 @@ type ComplexityRoot struct {
 }
 
 type MutationResolver interface {
-	CreateRecipe(ctx context.Context, input *NewRecipe, ingredients []*NewIngredient) (*Recipe, error)
-	UpdateRecipe(ctx context.Context, id *int, input *NewRecipe, ingredients []*NewIngredient) (*Recipe, error)
-	DeleteRecipe(ctx context.Context, id *int) ([]*Recipe, error)
+	CreateRecipe(ctx context.Context, input *NewRecipe, ingredients []*NewIngredient) (*models.Recipe, error)
+	UpdateRecipe(ctx context.Context, id *int, input *NewRecipe, ingredients []*NewIngredient) (*models.Recipe, error)
+	DeleteRecipe(ctx context.Context, id *int) ([]*models.Recipe, error)
 }
 type QueryResolver interface {
-	Recipes(ctx context.Context) ([]*Recipe, error)
+	Recipes(ctx context.Context) ([]*models.Recipe, error)
 }
 
 type executableSchema struct {
@@ -410,7 +411,7 @@ func (ec *executionContext) field___Type_fields_args(ctx context.Context, rawArg
 
 // region    **************************** field.gotpl *****************************
 
-func (ec *executionContext) _Ingredient_id(ctx context.Context, field graphql.CollectedField, obj *Ingredient) graphql.Marshaler {
+func (ec *executionContext) _Ingredient_id(ctx context.Context, field graphql.CollectedField, obj *models.Ingredient) graphql.Marshaler {
 	ctx = ec.Tracer.StartFieldExecution(ctx, field)
 	defer func() { ec.Tracer.EndFieldExecution(ctx) }()
 	rctx := &graphql.ResolverContext{
@@ -437,7 +438,7 @@ func (ec *executionContext) _Ingredient_id(ctx context.Context, field graphql.Co
 	return ec.marshalNInt2int(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Ingredient_name(ctx context.Context, field graphql.CollectedField, obj *Ingredient) graphql.Marshaler {
+func (ec *executionContext) _Ingredient_name(ctx context.Context, field graphql.CollectedField, obj *models.Ingredient) graphql.Marshaler {
 	ctx = ec.Tracer.StartFieldExecution(ctx, field)
 	defer func() { ec.Tracer.EndFieldExecution(ctx) }()
 	rctx := &graphql.ResolverContext{
@@ -464,7 +465,7 @@ func (ec *executionContext) _Ingredient_name(ctx context.Context, field graphql.
 	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Ingredient_recipeId(ctx context.Context, field graphql.CollectedField, obj *Ingredient) graphql.Marshaler {
+func (ec *executionContext) _Ingredient_recipeId(ctx context.Context, field graphql.CollectedField, obj *models.Ingredient) graphql.Marshaler {
 	ctx = ec.Tracer.StartFieldExecution(ctx, field)
 	defer func() { ec.Tracer.EndFieldExecution(ctx) }()
 	rctx := &graphql.ResolverContext{
@@ -519,10 +520,10 @@ func (ec *executionContext) _Mutation_createRecipe(ctx context.Context, field gr
 		}
 		return graphql.Null
 	}
-	res := resTmp.(*Recipe)
+	res := resTmp.(*models.Recipe)
 	rctx.Result = res
 	ctx = ec.Tracer.StartFieldChildExecution(ctx)
-	return ec.marshalNRecipe2ᚖgithubᚗcomᚋkofoworolaᚋgorecipeᚐRecipe(ctx, field.Selections, res)
+	return ec.marshalNRecipe2ᚖgithubᚗcomᚋkofoworolaᚋgorecipeᚋmodelsᚐRecipe(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_updateRecipe(ctx context.Context, field graphql.CollectedField) graphql.Marshaler {
@@ -553,10 +554,10 @@ func (ec *executionContext) _Mutation_updateRecipe(ctx context.Context, field gr
 		}
 		return graphql.Null
 	}
-	res := resTmp.(*Recipe)
+	res := resTmp.(*models.Recipe)
 	rctx.Result = res
 	ctx = ec.Tracer.StartFieldChildExecution(ctx)
-	return ec.marshalNRecipe2ᚖgithubᚗcomᚋkofoworolaᚋgorecipeᚐRecipe(ctx, field.Selections, res)
+	return ec.marshalNRecipe2ᚖgithubᚗcomᚋkofoworolaᚋgorecipeᚋmodelsᚐRecipe(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_deleteRecipe(ctx context.Context, field graphql.CollectedField) graphql.Marshaler {
@@ -587,10 +588,10 @@ func (ec *executionContext) _Mutation_deleteRecipe(ctx context.Context, field gr
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*Recipe)
+	res := resTmp.([]*models.Recipe)
 	rctx.Result = res
 	ctx = ec.Tracer.StartFieldChildExecution(ctx)
-	return ec.marshalNRecipe2ᚕᚖgithubᚗcomᚋkofoworolaᚋgorecipeᚐRecipe(ctx, field.Selections, res)
+	return ec.marshalNRecipe2ᚕᚖgithubᚗcomᚋkofoworolaᚋgorecipeᚋmodelsᚐRecipe(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_recipes(ctx context.Context, field graphql.CollectedField) graphql.Marshaler {
@@ -614,10 +615,10 @@ func (ec *executionContext) _Query_recipes(ctx context.Context, field graphql.Co
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*Recipe)
+	res := resTmp.([]*models.Recipe)
 	rctx.Result = res
 	ctx = ec.Tracer.StartFieldChildExecution(ctx)
-	return ec.marshalNRecipe2ᚕᚖgithubᚗcomᚋkofoworolaᚋgorecipeᚐRecipe(ctx, field.Selections, res)
+	return ec.marshalNRecipe2ᚕᚖgithubᚗcomᚋkofoworolaᚋgorecipeᚋmodelsᚐRecipe(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) graphql.Marshaler {
@@ -675,7 +676,7 @@ func (ec *executionContext) _Query___schema(ctx context.Context, field graphql.C
 	return ec.marshalO__Schema2ᚖgithubᚗcomᚋ99designsᚋgqlgenᚋgraphqlᚋintrospectionᚐSchema(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Recipe_id(ctx context.Context, field graphql.CollectedField, obj *Recipe) graphql.Marshaler {
+func (ec *executionContext) _Recipe_id(ctx context.Context, field graphql.CollectedField, obj *models.Recipe) graphql.Marshaler {
 	ctx = ec.Tracer.StartFieldExecution(ctx, field)
 	defer func() { ec.Tracer.EndFieldExecution(ctx) }()
 	rctx := &graphql.ResolverContext{
@@ -702,7 +703,7 @@ func (ec *executionContext) _Recipe_id(ctx context.Context, field graphql.Collec
 	return ec.marshalNInt2int(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Recipe_name(ctx context.Context, field graphql.CollectedField, obj *Recipe) graphql.Marshaler {
+func (ec *executionContext) _Recipe_name(ctx context.Context, field graphql.CollectedField, obj *models.Recipe) graphql.Marshaler {
 	ctx = ec.Tracer.StartFieldExecution(ctx, field)
 	defer func() { ec.Tracer.EndFieldExecution(ctx) }()
 	rctx := &graphql.ResolverContext{
@@ -729,7 +730,7 @@ func (ec *executionContext) _Recipe_name(ctx context.Context, field graphql.Coll
 	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Recipe_procedure(ctx context.Context, field graphql.CollectedField, obj *Recipe) graphql.Marshaler {
+func (ec *executionContext) _Recipe_procedure(ctx context.Context, field graphql.CollectedField, obj *models.Recipe) graphql.Marshaler {
 	ctx = ec.Tracer.StartFieldExecution(ctx, field)
 	defer func() { ec.Tracer.EndFieldExecution(ctx) }()
 	rctx := &graphql.ResolverContext{
@@ -756,7 +757,7 @@ func (ec *executionContext) _Recipe_procedure(ctx context.Context, field graphql
 	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Recipe_ingredients(ctx context.Context, field graphql.CollectedField, obj *Recipe) graphql.Marshaler {
+func (ec *executionContext) _Recipe_ingredients(ctx context.Context, field graphql.CollectedField, obj *models.Recipe) graphql.Marshaler {
 	ctx = ec.Tracer.StartFieldExecution(ctx, field)
 	defer func() { ec.Tracer.EndFieldExecution(ctx) }()
 	rctx := &graphql.ResolverContext{
@@ -777,10 +778,10 @@ func (ec *executionContext) _Recipe_ingredients(ctx context.Context, field graph
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*Ingredient)
+	res := resTmp.([]models.Ingredient)
 	rctx.Result = res
 	ctx = ec.Tracer.StartFieldChildExecution(ctx)
-	return ec.marshalNIngredient2ᚕᚖgithubᚗcomᚋkofoworolaᚋgorecipeᚐIngredient(ctx, field.Selections, res)
+	return ec.marshalNIngredient2ᚕgithubᚗcomᚋkofoworolaᚋgorecipeᚋmodelsᚐIngredient(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) ___Directive_name(ctx context.Context, field graphql.CollectedField, obj *introspection.Directive) graphql.Marshaler {
@@ -1666,7 +1667,7 @@ func (ec *executionContext) unmarshalInputNewRecipe(ctx context.Context, v inter
 
 var ingredientImplementors = []string{"Ingredient"}
 
-func (ec *executionContext) _Ingredient(ctx context.Context, sel ast.SelectionSet, obj *Ingredient) graphql.Marshaler {
+func (ec *executionContext) _Ingredient(ctx context.Context, sel ast.SelectionSet, obj *models.Ingredient) graphql.Marshaler {
 	fields := graphql.CollectFields(ec.RequestContext, sel, ingredientImplementors)
 
 	out := graphql.NewFieldSet(fields)
@@ -1788,7 +1789,7 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 
 var recipeImplementors = []string{"Recipe"}
 
-func (ec *executionContext) _Recipe(ctx context.Context, sel ast.SelectionSet, obj *Recipe) graphql.Marshaler {
+func (ec *executionContext) _Recipe(ctx context.Context, sel ast.SelectionSet, obj *models.Recipe) graphql.Marshaler {
 	fields := graphql.CollectFields(ec.RequestContext, sel, recipeImplementors)
 
 	out := graphql.NewFieldSet(fields)
@@ -2087,11 +2088,11 @@ func (ec *executionContext) marshalNBoolean2bool(ctx context.Context, sel ast.Se
 	return res
 }
 
-func (ec *executionContext) marshalNIngredient2githubᚗcomᚋkofoworolaᚋgorecipeᚐIngredient(ctx context.Context, sel ast.SelectionSet, v Ingredient) graphql.Marshaler {
+func (ec *executionContext) marshalNIngredient2githubᚗcomᚋkofoworolaᚋgorecipeᚋmodelsᚐIngredient(ctx context.Context, sel ast.SelectionSet, v models.Ingredient) graphql.Marshaler {
 	return ec._Ingredient(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNIngredient2ᚕᚖgithubᚗcomᚋkofoworolaᚋgorecipeᚐIngredient(ctx context.Context, sel ast.SelectionSet, v []*Ingredient) graphql.Marshaler {
+func (ec *executionContext) marshalNIngredient2ᚕgithubᚗcomᚋkofoworolaᚋgorecipeᚋmodelsᚐIngredient(ctx context.Context, sel ast.SelectionSet, v []models.Ingredient) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
 	isLen1 := len(v) == 1
@@ -2115,7 +2116,7 @@ func (ec *executionContext) marshalNIngredient2ᚕᚖgithubᚗcomᚋkofoworola�
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNIngredient2ᚖgithubᚗcomᚋkofoworolaᚋgorecipeᚐIngredient(ctx, sel, v[i])
+			ret[i] = ec.marshalNIngredient2githubᚗcomᚋkofoworolaᚋgorecipeᚋmodelsᚐIngredient(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -2126,16 +2127,6 @@ func (ec *executionContext) marshalNIngredient2ᚕᚖgithubᚗcomᚋkofoworola�
 	}
 	wg.Wait()
 	return ret
-}
-
-func (ec *executionContext) marshalNIngredient2ᚖgithubᚗcomᚋkofoworolaᚋgorecipeᚐIngredient(ctx context.Context, sel ast.SelectionSet, v *Ingredient) graphql.Marshaler {
-	if v == nil {
-		if !ec.HasError(graphql.GetResolverContext(ctx)) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	return ec._Ingredient(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalNInt2int(ctx context.Context, v interface{}) (int, error) {
@@ -2152,11 +2143,11 @@ func (ec *executionContext) marshalNInt2int(ctx context.Context, sel ast.Selecti
 	return res
 }
 
-func (ec *executionContext) marshalNRecipe2githubᚗcomᚋkofoworolaᚋgorecipeᚐRecipe(ctx context.Context, sel ast.SelectionSet, v Recipe) graphql.Marshaler {
+func (ec *executionContext) marshalNRecipe2githubᚗcomᚋkofoworolaᚋgorecipeᚋmodelsᚐRecipe(ctx context.Context, sel ast.SelectionSet, v models.Recipe) graphql.Marshaler {
 	return ec._Recipe(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNRecipe2ᚕᚖgithubᚗcomᚋkofoworolaᚋgorecipeᚐRecipe(ctx context.Context, sel ast.SelectionSet, v []*Recipe) graphql.Marshaler {
+func (ec *executionContext) marshalNRecipe2ᚕᚖgithubᚗcomᚋkofoworolaᚋgorecipeᚋmodelsᚐRecipe(ctx context.Context, sel ast.SelectionSet, v []*models.Recipe) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
 	isLen1 := len(v) == 1
@@ -2180,7 +2171,7 @@ func (ec *executionContext) marshalNRecipe2ᚕᚖgithubᚗcomᚋkofoworolaᚋgor
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNRecipe2ᚖgithubᚗcomᚋkofoworolaᚋgorecipeᚐRecipe(ctx, sel, v[i])
+			ret[i] = ec.marshalNRecipe2ᚖgithubᚗcomᚋkofoworolaᚋgorecipeᚋmodelsᚐRecipe(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -2193,7 +2184,7 @@ func (ec *executionContext) marshalNRecipe2ᚕᚖgithubᚗcomᚋkofoworolaᚋgor
 	return ret
 }
 
-func (ec *executionContext) marshalNRecipe2ᚖgithubᚗcomᚋkofoworolaᚋgorecipeᚐRecipe(ctx context.Context, sel ast.SelectionSet, v *Recipe) graphql.Marshaler {
+func (ec *executionContext) marshalNRecipe2ᚖgithubᚗcomᚋkofoworolaᚋgorecipeᚋmodelsᚐRecipe(ctx context.Context, sel ast.SelectionSet, v *models.Recipe) graphql.Marshaler {
 	if v == nil {
 		if !ec.HasError(graphql.GetResolverContext(ctx)) {
 			ec.Errorf(ctx, "must not be null")
